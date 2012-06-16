@@ -109,6 +109,7 @@ void loop( void )
         Serial.print(F("Closing log file after "));
         Serial.print(nBlocks, DEC);
         Serial.println(F(" blocks"));
+        logFile.flush();
         logFile.close();
         logOpen();
   }      
@@ -190,6 +191,7 @@ void logClose(void)
     msg += "\n";
 
     logFile.print(msg);
+    logFile.flush();
     logFile.close();
     flashLED(redLED);
     digitalWrite(grnLED, LOW);
