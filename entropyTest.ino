@@ -38,7 +38,7 @@
  *    - If an error occurs, the red LED blinks rapidly and an           *
  *      error message is written to the serial monitor.                 *
  *    - Reset the MCU to restart the sketch after an error or halt.     *
- *    - Set the name[] and comment[] arrays to include your name and    *
+ *    - Set the myName[] and comment[] arrays to include your name and  *
  *      test details in the log file.                                   *
  *    - To guard against data loss due to power outage, etc., the       *
  *      log file is periodically closed and reopened.                   *
@@ -67,9 +67,9 @@
                                 //over-writing prior files that may already exist on the card.
 #define LOG_FILENAME_EXT "txt"  //extension to use with the log file name. must be no longer than three characters.
 #define LOG_CLOSE_INTERVAL 60   //close and re-open the log file after this many seconds (approx)
-#define BLOCK_SIZE 16           //for efficiency, generate this many random numbers, then write to SD card
+#define BLOCK_SIZE 8            //for efficiency, generate this many random numbers, then write to SD card
 
-char name[] = "Your name here";
+char myName[] = "Your name here";
 char comment[] = "Describe board and other test environment details";
 File logFile;                   //the file on the SD card
 char logFilename[13];           //SD file name
@@ -147,7 +147,7 @@ void logInitialize(void)
     msg += "\nFile: ";
     msg += logFilename;
     msg += "\nName: ";
-    msg += name;
+    msg += myName;
     msg += "\nComment: ";
     msg += comment;
     msg +="\n";
