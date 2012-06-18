@@ -70,10 +70,10 @@
 #define BLOCK_SIZE 8            //for efficiency, generate this many random numbers, then write to SD card
 
 char myName[] = "Your name here";
-char comment[] = "Describe board and other test environment details";
+char comment[] = "Describe board and other test environment details, e.g. chip part number, date code";
 File logFile;                   //the file on the SD card
 char logFilename[13];           //SD file name
-int nBlocks;                    //number of blocks of random numbers written to SD card
+unsigned long nBlocks;          //number of blocks of random numbers written to SD card
 unsigned long ms;               //time from millis()
 unsigned long lastClose;        //last time the log file was closed and reopened
 
